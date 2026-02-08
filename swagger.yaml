@@ -10,6 +10,7 @@ paths:
   /users:
     get:
       summary: Get all users
+      description: Retrieves a list of all registered users in the system
       responses:
         '200':
           description: A list of users
@@ -19,9 +20,55 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
+              examples:
+                enterprise_users:
+                  summary: Enterprise users example
+                  value:
+                    - id: 101
+                      name: "Sarah Johnson"
+                      email: "sarah.johnson@techcorp.com"
+                      age: 28
+                      phone_number: "+1-555-0123"
+                    - id: 102
+                      name: "Michael Chen"
+                      email: "mchen@innovate.io"
+                      age: 34
+                      phone_number: "+1-555-0456"
+                    - id: 103
+                      name: "Emily Rodriguez"
+                      email: "emily.r@startup.tech"
+                      age: 26
+                      phone_number: "+1-555-0789"
+                education_users:
+                  summary: Educational institution users
+                  value:
+                    - id: 201
+                      name: "Dr. Robert Williams"
+                      email: "r.williams@university.edu"
+                      age: 45
+                      phone_number: "+1-555-1234"
+                    - id: 202
+                      name: "Lisa Anderson"
+                      email: "l.anderson@college.edu"
+                      age: 38
+                      phone_number: "+1-555-5678"
+                freelancer_users:
+                  summary: Freelance professionals
+                  value:
+                    - id: 301
+                      name: "Alex Thompson"
+                      email: "alex@freelance.works"
+                      age: 31
+                      phone_number: "+44-20-1234-5678"
+                    - id: 302
+                      name: "Maria Garcia"
+                      email: "maria.garcia@creative.studio"
+                      age: 29
+                      phone_number: "+34-91-123-4567"
   /applications:
     get:
       summary: Get all applications
+      description: Retrieves a list of all available applications in the system
       responses:
         '200':
           description: A list of applications
@@ -31,9 +78,74 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Application'
+              examples:
+                productivity_apps:
+                  summary: Productivity and collaboration applications
+                  value:
+                    - id: 1001
+                      name: "TeamSync Pro"
+                      version: "3.2.1"
+                      description: "Enterprise team collaboration and video conferencing platform"
+                      category: "Productivity"
+                      status: "Active"
+                    - id: 1002
+                      name: "DocumentFlow"
+                      version: "2.5.0"
+                      description: "Cloud-based document management and workflow automation"
+                      category: "Productivity"
+                      status: "Active"
+                    - id: 1003
+                      name: "TimeTracker Elite"
+                      version: "1.8.3"
+                      description: "Advanced time tracking and project billing solution"
+                      category: "Productivity"
+                      status: "Active"
+                development_tools:
+                  summary: Development and DevOps tools
+                  value:
+                    - id: 2001
+                      name: "GitMaster"
+                      version: "4.1.0"
+                      description: "Advanced Git repository management and code review platform"
+                      category: "Development"
+                      status: "Active"
+                    - id: 2002
+                      name: "CI/CD Pipeline Manager"
+                      version: "3.0.2"
+                      description: "Continuous integration and deployment automation tool"
+                      category: "Development"
+                      status: "Active"
+                    - id: 2003
+                      name: "API Testing Suite"
+                      version: "2.3.0-beta"
+                      description: "Comprehensive API testing and documentation tool"
+                      category: "Development"
+                      status: "Beta"
+                analytics_platforms:
+                  summary: Analytics and business intelligence
+                  value:
+                    - id: 3001
+                      name: "DataInsights Pro"
+                      version: "5.0.1"
+                      description: "Real-time business analytics and visualization dashboard"
+                      category: "Analytics"
+                      status: "Active"
+                    - id: 3002
+                      name: "MetricsHub"
+                      version: "2.7.4"
+                      description: "Customer behavior analytics and reporting platform"
+                      category: "Analytics"
+                      status: "Active"
+                    - id: 3003
+                      name: "PredictiveAI Engine"
+                      version: "1.0.0-rc1"
+                      description: "Machine learning-powered predictive analytics service"
+                      category: "Analytics"
+                      status: "Beta"
   /userApplicationRelations:
     get:
       summary: Get all user-application relations
+      description: Retrieves all relationships between users and applications, including roles and permissions
       responses:
         '200':
           description: A list of user-application relations
@@ -43,9 +155,92 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserApplicationRelation'
+              examples:
+                enterprise_assignments:
+                  summary: Enterprise environment user assignments
+                  value:
+                    - id: 5001
+                      user_id: 101
+                      application_id: 1001
+                      role: "Administrator"
+                      permissions: ["read", "write", "delete", "admin", "user_management"]
+                      start_date: "2024-01-15T09:00:00Z"
+                      end_date: "2025-01-14T23:59:59Z"
+                      status: "Active"
+                    - id: 5002
+                      user_id: 102
+                      application_id: 1002
+                      role: "Project Manager"
+                      permissions: ["read", "write", "approve", "assign_tasks"]
+                      start_date: "2024-02-01T09:00:00Z"
+                      end_date: "2025-01-31T23:59:59Z"
+                      status: "Active"
+                    - id: 5003
+                      user_id: 103
+                      application_id: 1001
+                      role: "Team Member"
+                      permissions: ["read", "write", "comment"]
+                      start_date: "2024-03-10T09:00:00Z"
+                      end_date: "2024-12-31T23:59:59Z"
+                      status: "Active"
+                development_team_access:
+                  summary: Development team application access
+                  value:
+                    - id: 6001
+                      user_id: 102
+                      application_id: 2001
+                      role: "Lead Developer"
+                      permissions: ["read", "write", "merge", "deploy", "configure"]
+                      start_date: "2024-01-01T00:00:00Z"
+                      end_date: "2025-12-31T23:59:59Z"
+                      status: "Active"
+                    - id: 6002
+                      user_id: 103
+                      application_id: 2002
+                      role: "DevOps Engineer"
+                      permissions: ["read", "write", "deploy", "monitor", "rollback"]
+                      start_date: "2024-02-15T09:00:00Z"
+                      end_date: "2025-02-14T23:59:59Z"
+                      status: "Active"
+                    - id: 6003
+                      user_id: 301
+                      application_id: 2003
+                      role: "QA Tester"
+                      permissions: ["read", "write", "test", "report_bugs"]
+                      start_date: "2024-01-20T09:00:00Z"
+                      end_date: "2024-07-20T23:59:59Z"
+                      status: "Suspended"
+                analytics_access:
+                  summary: Analytics platform user access
+                  value:
+                    - id: 7001
+                      user_id: 201
+                      application_id: 3001
+                      role: "Data Analyst"
+                      permissions: ["read", "create_reports", "export_data"]
+                      start_date: "2024-04-01T09:00:00Z"
+                      end_date: "2025-03-31T23:59:59Z"
+                      status: "Active"
+                    - id: 7002
+                      user_id: 202
+                      application_id: 3002
+                      role: "Business Intelligence Manager"
+                      permissions: ["read", "write", "create_dashboards", "share", "admin"]
+                      start_date: "2024-01-10T09:00:00Z"
+                      end_date: "2025-12-31T23:59:59Z"
+                      status: "Active"
+                    - id: 7003
+                      user_id: 302
+                      application_id: 3003
+                      role: "Data Scientist"
+                      permissions: ["read", "write", "train_models", "deploy"]
+                      start_date: "2024-05-01T09:00:00Z"
+                      end_date: "2024-11-30T23:59:59Z"
+                      status: "Active"
   /health:
     get:
       summary: Health check
+      description: Returns the health status of the API server
       responses:
         '200':
           description: Server status
@@ -56,57 +251,170 @@ paths:
                 properties:
                   status:
                     type: string
-                    example: ok
+              examples:
+                healthy:
+                  summary: Server is healthy
+                  value:
+                    status: "ok"
+                healthy_with_timestamp:
+                  summary: Server is healthy with timestamp
+                  value:
+                    status: "healthy"
+                    timestamp: "2024-02-08T15:02:05Z"
+                    uptime: "24h 15m 30s"
+                maintenance_mode:
+                  summary: Server in maintenance mode
+                  value:
+                    status: "maintenance"
+                    message: "Scheduled maintenance in progress"
 components:
   schemas:
     User:
       type: object
+      description: Represents a user in the system
+      required:
+        - id
+        - name
+        - email
       properties:
         id:
           type: integer
+          description: Unique identifier for the user
+          example: 101
         name:
           type: string
+          description: Full name of the user
+          example: "Sarah Johnson"
         email:
           type: string
+          format: email
+          description: Email address of the user
+          example: "sarah.johnson@techcorp.com"
         age:
           type: integer
+          description: Age of the user in years
+          minimum: 18
+          maximum: 120
+          example: 28
         phone_number:
           type: string
+          description: Phone number with country code
+          example: "+1-555-0123"
+      example:
+        id: 101
+        name: "Sarah Johnson"
+        email: "sarah.johnson@techcorp.com"
+        age: 28
+        phone_number: "+1-555-0123"
     Application:
       type: object
+      description: Represents an application in the system
+      required:
+        - id
+        - name
+        - version
+        - status
       properties:
         id:
           type: integer
+          description: Unique identifier for the application
+          example: 1001
         name:
           type: string
+          description: Name of the application
+          example: "TeamSync Pro"
         version:
           type: string
+          description: Current version number (semantic versioning)
+          pattern: '^\d+\.\d+\.\d+(-[a-zA-Z0-9]+)?$'
+          example: "3.2.1"
         description:
           type: string
+          description: Detailed description of the application's purpose
+          example: "Enterprise team collaboration and video conferencing platform"
         category:
           type: string
+          description: Category or type of application
+          enum:
+            - Productivity
+            - Development
+            - Analytics
+            - Communication
+            - Storage
+          example: "Productivity"
         status:
           type: string
+          description: Current operational status of the application
+          enum:
+            - Active
+            - Beta
+            - Deprecated
+            - Maintenance
+          example: "Active"
+      example:
+        id: 1001
+        name: "TeamSync Pro"
+        version: "3.2.1"
+        description: "Enterprise team collaboration and video conferencing platform"
+        category: "Productivity"
+        status: "Active"
     UserApplicationRelation:
       type: object
+      description: Represents the relationship between a user and an application, including role and permissions
+      required:
+        - id
+        - user_id
+        - application_id
+        - role
+        - status
       properties:
         id:
           type: integer
+          description: Unique identifier for the relation
+          example: 5001
         user_id:
           type: integer
+          description: ID of the user in this relation
+          example: 101
         application_id:
           type: integer
+          description: ID of the application in this relation
+          example: 1001
         role:
           type: string
+          description: Role assigned to the user for this application
+          example: "Administrator"
         permissions:
           type: array
+          description: List of permissions granted to the user
           items:
             type: string
+          example: ["read", "write", "delete", "admin", "user_management"]
         start_date:
           type: string
           format: date-time
+          description: Date and time when the relation became active
+          example: "2024-01-15T09:00:00Z"
         end_date:
           type: string
           format: date-time
+          description: Date and time when the relation expires or ended
+          example: "2025-01-14T23:59:59Z"
         status:
           type: string
+          description: Current status of the relation
+          enum:
+            - Active
+            - Suspended
+            - Expired
+            - Revoked
+          example: "Active"
+      example:
+        id: 5001
+        user_id: 101
+        application_id: 1001
+        role: "Administrator"
+        permissions: ["read", "write", "delete", "admin", "user_management"]
+        start_date: "2024-01-15T09:00:00Z"
+        end_date: "2025-01-14T23:59:59Z"
+        status: "Active"
