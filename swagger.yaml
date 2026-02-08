@@ -1,0 +1,112 @@
+openapi: 3.0.0
+info:
+  title: Feb6-26 Go API
+  description: API documentation for the Feb6-26 Go application.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local server
+paths:
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+  /applications:
+    get:
+      summary: Get all applications
+      responses:
+        '200':
+          description: A list of applications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Application'
+  /userApplicationRelations:
+    get:
+      summary: Get all user-application relations
+      responses:
+        '200':
+          description: A list of user-application relations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserApplicationRelation'
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Server status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        age:
+          type: integer
+        phone_number:
+          type: string
+    Application:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        version:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        status:
+          type: string
+    UserApplicationRelation:
+      type: object
+      properties:
+        id:
+          type: integer
+        user_id:
+          type: integer
+        application_id:
+          type: integer
+        role:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        start_date:
+          type: string
+          format: date-time
+        end_date:
+          type: string
+          format: date-time
+        status:
+          type: string
