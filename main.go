@@ -13,7 +13,7 @@ type User struct {
 	ID          int    `json:"id"`
 	Name        string `json:"name"`
 	Email       string `json:"email"`
-	Age         int    `json:"age"`
+	Age         string    `json:"age"`
 	PhoneNumber string `json:"phone_number"`
 }
 
@@ -41,9 +41,9 @@ type UserApplicationRelation struct {
 
 // Hardcoded sample data
 var users = []User{
-	{ID: 1, Name: "John Doe", Email: "john@example.com", Age: 30},
-	{ID: 2, Name: "Jane Smith", Email: "jane@example.com", Age: 25},
-	{ID: 3, Name: "Bob Johnson", Email: "bob@example.com", Age: 35},
+	{ID: 1, Name: "John Doe", Email: "john@example.com", Age: "30"},
+	{ID: 2, Name: "Jane Smith", Email: "jane@example.com", Age: "25"},
+	{ID: 3, Name: "Bob Johnson", Email: "bob@example.com", Age: "35"},
 }
 
 var applications = []Application{
