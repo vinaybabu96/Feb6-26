@@ -27,17 +27,17 @@ paths:
                     - id: 101
                       name: "Sarah Johnson"
                       email: "sarah.johnson@techcorp.com"
-                      age: 28
+                      age: "28"
                       phone_number: "+1-555-0123"
                     - id: 102
                       name: "Michael Chen"
                       email: "mchen@innovate.io"
-                      age: 34
+                      age: "34"
                       phone_number: "+1-555-0456"
                     - id: 103
                       name: "Emily Rodriguez"
                       email: "emily.r@startup.tech"
-                      age: 26
+                      age: "26"
                       phone_number: "+1-555-0789"
                 education_users:
                   summary: Educational institution users
@@ -45,12 +45,12 @@ paths:
                     - id: 201
                       name: "Dr. Robert Williams"
                       email: "r.williams@university.edu"
-                      age: 45
+                      age: "45"
                       phone_number: "+1-555-1234"
                     - id: 202
                       name: "Lisa Anderson"
                       email: "l.anderson@college.edu"
-                      age: 38
+                      age: "38"
                       phone_number: "+1-555-5678"
                 freelancer_users:
                   summary: Freelance professionals
@@ -58,12 +58,12 @@ paths:
                     - id: 301
                       name: "Alex Thompson"
                       email: "alex@freelance.works"
-                      age: 31
+                      age: "31"
                       phone_number: "+44-20-1234-5678"
                     - id: 302
                       name: "Maria Garcia"
                       email: "maria.garcia@creative.studio"
-                      age: 29
+                      age: "29"
                       phone_number: "+34-91-123-4567"
   /applications:
     get:
@@ -291,11 +291,9 @@ components:
           description: Email address of the user
           example: "sarah.johnson@techcorp.com"
         age:
-          type: integer
+          type: string
           description: Age of the user in years
-          minimum: 18
-          maximum: 120
-          example: 28
+          example: "28"
         phone_number:
           type: string
           description: Phone number with country code
@@ -304,7 +302,7 @@ components:
         id: 101
         name: "Sarah Johnson"
         email: "sarah.johnson@techcorp.com"
-        age: 28
+        age: "28"
         phone_number: "+1-555-0123"
     Application:
       type: object
