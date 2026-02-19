@@ -292,7 +292,13 @@ components:
           example: "sarah.johnson@techcorp.com"
         age:
           type: integer
-          description: Age of the user in years
+          format: int32
+          description: |
+            Age of the user in years. Must be a positive integer.
+            For enterprise accounts, users must be 18 or older.
+            For educational accounts, minimum age is 13.
+          minimum: 0
+          maximum: 150
           example: 28
         phone_number:
           type: string
